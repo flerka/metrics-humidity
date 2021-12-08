@@ -1,0 +1,41 @@
+version: "3.4"
+
+services:
+  metrics-humidity:
+    build:
+      context: .
+    ports:
+      - "5000:80"
+    networks: 
+      - rpi
+    env_file:
+      - ./.env
+
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/:/etc/prometheus/
+    depends_on:
+      - metrics-humidity
+    networks:
+      - rpi
+
+  grafana:
+    image : grafana/grafana
+    depends_on: 
+      - prometheus
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./grafana/data/:/var/lib/grafana
+      - ./grafana/provisioning/:/etc/grafana/provisioning/
+    env_file:
+      - ./.env
+    networks:
+      - rpi
+
+networks:
+  rpi:
+     external: true
