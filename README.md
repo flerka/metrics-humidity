@@ -6,7 +6,7 @@ This app push Deconz sensors data to Prometheus and visualize them with Grafana.
 - if needed edit \prometheus\prometheus.yml to change schedule
 - run in console docker-compose up --build
 - go to http://localhost:3000/ and add prometheus data sourse (prometheus:9090 in my case)
-- add labes to Grafana 
+- add labels to Grafana 
 
 ## How it will look like
 ![main](https://raw.githubusercontent.com/flerka/metrics-humidity/main/.github/img/1.png)
