@@ -1,8 +1,6 @@
-I created this app to monitor the temperature and humidity in my apartment during the night.
+I created this app to monitor the temperature and humidity in my apartment during the night. The app pushes temperature and humidity sensors data to Prometheus. deCONZ is used as ZigBee gateway to communicate with sensors. 
 
 The app is written in C# with .Net 5. I configured CI in Github Actions, and Docker images are stored on Docker Hub. The app is hosted on Raspberry Pi on Linux.
-
-The app pushes temperature and humidity sensors data to Prometheus. deCONZ is used as ZigBee gateway to communicate with sensors. 
 
 ## How to start
 - get deCONZ [API key](https://dresden-elektronik.github.io/deconz-rest-doc/getting_started/#acquire-an-api-key)
